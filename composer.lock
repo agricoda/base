@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e963e87b8c468ad59be342a306c4306b",
-    "content-hash": "46769afa7f17948b5e6a0af197cf5783",
+    "hash": "24a46e606ff4156ca148f1a0b774060d",
+    "content-hash": "b52e3d8872ff382f2a7ffe54d8458277",
     "packages": [
         {
             "name": "symfony/http-foundation",

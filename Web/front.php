@@ -26,5 +26,3 @@ try {
 }
 
 $response->send();
-
-

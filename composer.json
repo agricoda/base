@@ -1,5 +1,5 @@
 {
-    "name": "Agricoda/Base",
+    "name": "agricoda/base",
     "description": "Basic Base Framework based on symfony components",
     "license": "MIT",
     "require": {"symfony/http-foundation": "^2.7",
