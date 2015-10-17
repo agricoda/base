@@ -12,9 +12,9 @@ use Symfony\Component\Routing;
 class LeapYearController
 {
 
-    public function indexAction($request)
+    public function indexAction($year)
     {
-        if (is_leap_year($request->attributes->get('year'))) {
+        if (is_leap_year($year)) {
             return new Response('Yep, this a leap year!');
         }
 

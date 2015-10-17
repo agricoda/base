@@ -4,6 +4,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Controller\ControllerResolver;
 use Symfony\Component\Routing;
 
 function render_template($request)
@@ -18,13 +19,19 @@ function render_template($request)
 $request = Request::createFromGlobals();
 $routes = include __DIR__ . '/../src/app.php';
 
+$response = call_user_func($controller, $arguments);
+
 $context = new Routing\RequestContext();
 $context->fromRequest($request);
 $matcher = new Routing\Matcher\UrlMatcher($routes, $context);
+$resolver = new ControllerResolver();
 
 try {
     $request->attributes->add($matcher->match($request->getPathInfo()));
-    $response = call_user_func('render_template', $request);
+
+    $controller = $resolver->getController($request);
+    $arguments = $resolver->getArguments($request, $controller);
+
 } catch (Routing\Exception\ResourceNotFoundException $ex) {
     $response = new Response('Not Found', 404);
 } catch (Exception $ex) {
