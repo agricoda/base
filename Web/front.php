@@ -40,13 +40,17 @@ use Symfony\Component\Routing;
 //$response->send();
 
 $request = Request::createFromGlobals();
+
 $routes = include __DIR__ . '/../src/app.php';
+
+//var_dump($routes);
 
 $context = new Routing\RequestContext();
 $matcher = new Routing\Matcher\UrlMatcher($routes, $context);
 $resolver = new ControllerResolver();
 
-$framework = new Agricoda\Base($matcher, $resolver);
+$framework = new Base\Framework($matcher, $resolver);
+//var_dump($framework);
 $response = $framework->handle($request);
 
 $response->send();

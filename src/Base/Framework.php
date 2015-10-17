@@ -1,20 +1,20 @@
 <?php
 
-namespace Agricoda;
+namespace Base;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Controller\ControllerResolver;
+use Symfony\Component\HttpKernel\Controller\ControllerResolverInterface;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
-use Symfony\Component\Routing\Matcher\UrlMatcher;
+use Symfony\Component\Routing\Matcher\UrlMatcherInterface;
 
-class Base
+class Framework
 {
 
     protected $matcher;
     protected $resolver;
 
-    public function __construct(UrlMatcher $matcher, ControllerResolver $resolver)
+    public function __construct(UrlMatcherInterface $matcher, ControllerResolverInterface $resolver)
     {
         $this->matcher = $matcher;
         $this->resolver = $resolver;
@@ -31,10 +31,10 @@ class Base
             $arguments = $this->resolver->getArguments($request, $controller);
 
             return call_user_func($controller, $arguments);
-        } catch (ResourceNotFoundException $ex) {
+        } catch (ResourceNotFoundException $e) {
             return new Response('Not Found', 404);
-        } catch (\Exception $ex) {
-            return new Response('Somethings not right here', 500);
+        } catch (\Exception $e) {
+            return new Response('Something went wrong', 500);
         }
     }
 

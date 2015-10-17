@@ -1,9 +1,17 @@
 {
-    "name": "agricoda/base",
-    "description": "Basic Base Framework based on symfony components",
-    "license": "MIT",
-    "require": {"symfony/http-foundation": "^2.7",
-        "symfony/routing": "^2.7",
-        "symfony/http-kernel": "^2.7"
+  "name": "agricoda/base",
+  "description": "Basic Base Framework based on symfony components",
+  "license": "MIT",
+  "require": {
+    "symfony/http-foundation": "^2.7",
+    "symfony/routing": "^2.7",
+    "symfony/http-kernel": "^2.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "Base\\": "src/Base",
+      "Calendar\\": "src/Calendar",
+      "Test\\": "src/Test"
     }
+  }
 }
