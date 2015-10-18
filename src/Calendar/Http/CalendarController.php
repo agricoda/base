@@ -11,7 +11,6 @@ class CalendarController
 
     public function indexAction(Request $request, $year)
     {
-//        return Response('Hi');
         $leapyear = new LeapYear();
         if ($leapyear->isLeapYear($year)) {
             return new Response('Yep, leap year');

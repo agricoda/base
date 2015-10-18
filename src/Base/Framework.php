@@ -10,7 +10,6 @@ use Symfony\Component\Routing\Matcher\UrlMatcherInterface;
 
 class Framework
 {
-
     protected $matcher;
     protected $resolver;
 

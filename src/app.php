@@ -1,10 +1,8 @@
 <?php
-// example.com/src/app.php
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing;
 
-//
 $routes = new Routing\RouteCollection();
 $routes->add('leap_year', new Routing\Route('/is_leap_year/{year}', array(
   'year'        => null,
@@ -18,17 +16,4 @@ $routes->add('test', new Routing\Route('/test/{name}', array(
   },
 )));
 
-
 return $routes;
-
-//use Routing\Route;
-
-//var_dump($routes);
-//$routes->add('\some_route', function ($params) {
-//   return $params;
-//});
-//$routes->add('leap_year', new Symfony\Component\Routing\Route('/is_leap_year/{year}', array(
-//  'year' => null,
-//  '_controller' => 'Calendar\\Controller\\LeapYearController::indexAction',
-//)));
-////return $routes;
