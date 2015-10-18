@@ -5,7 +5,8 @@
   "require": {
     "symfony/http-foundation": "^2.7",
     "symfony/routing": "^2.7",
-    "symfony/http-kernel": "^2.7"
+    "symfony/http-kernel": "^2.7",
+    "symfony/event-dispatcher": "^2.7"
   },
   "autoload": {
     "psr-4": {
